@@ -3,6 +3,8 @@ public class Magazine {
     private String title;
     private double cost;
     private int numInStock;
+    // static varible 
+    private static int numOfMagazine;
 
     // Constructors
     // makes the code flexible
@@ -10,11 +12,13 @@ public class Magazine {
         this.title = "";
         this.cost = 0;
         this.numInStock = 0;
+        numOfMagazine++;
     }
 
     Magazine(String title, double cost) {
         this.title = title;
         this.cost = cost;
+        numOfMagazine++;
     }
 
     Magazine(String title, double cost, int numInStock) {
@@ -25,15 +29,18 @@ public class Magazine {
 
     // Accessors
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public double getCost() {
-        return cost;
+        return this.cost;
     }
 
     public int getNumInStco() {
-        return numInStock;
+        return this.numInStock;
+    }
+    public static int getNumOfMagazine(){
+        return numOfMagazine;
     }
 
     // Mutator
@@ -57,6 +64,10 @@ public class Magazine {
             this.numInStock = numInStock;
         else
             throw new IllegalArgumentException("The Stock can't be negative");
+    }
+
+    public static void updateNumOfMagazine(){
+        numOfMagazine--;
     }
 
     // toString Method
